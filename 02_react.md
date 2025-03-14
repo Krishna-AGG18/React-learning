@@ -21,11 +21,12 @@ we can render html elements through js , jsx se ham aone khud ke tags bana skte 
 
 bina   <React.StrictMode>  iske bina bhi render hota ha
 
-<APP /> is nothin but a function that returns a html element (see in APP.js)
+<App />(this syntax is JSx,It is similar to writing HTML but allows embedding JavaScript expressions)
+ is nothin but a function that returns a html element (see in APP.js)
 
 React :- function lo uske ander html return krdo and we can render that html in my dom, HENCE WE HAVE PROGRAMMING CAPABILITY IN HTML
 
-IN CASE OF CREATE-REACT-APP :- scripts are injectde into index.html by read-scripts in package . json
+IN CASE OF CREATE-REACT-APP :- scripts are injected into index.html by read-scripts in package . json
 
 in case of vite there are no reacr-scripts hence we need to add js manaually through script tag
 
