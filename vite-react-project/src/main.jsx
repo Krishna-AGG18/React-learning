@@ -4,6 +4,6 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+       <h1>HELLO I AM KRISHNA | learning react</h1>
   </StrictMode>,
 )

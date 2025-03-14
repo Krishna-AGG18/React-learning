@@ -7,7 +7,5 @@ const root = ReactDOM.createRoot(document.getElementById('root')); // root eleme
 
 //now render app (JSX -> we can render our html element from js like <APP />)
 root.render(
-
     <App />
-
 );

@@ -1,10 +1,8 @@
 
-
-
 function App() {
 
   return (
-   <H1>HELLO I AM KRISHNA</H1>
+   <h1>HELLO I AM KRISHNA</h1>
   )
 }
 
