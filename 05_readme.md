@@ -55,6 +55,22 @@ Returns
 On the initial render, useCallback returns the fn function you have passed.
 During subsequent renders, it will either return an already stored fn  function from the last render (if the dependencies haven’t changed), or return the fn function you have passed during this render.
 
+### useEffect hook
+The useEffect hook runs side effects in functional components. It executes code automatically when the component renders or when dependencies change.
 
+Syntax--->>>>
+useEffect(() => {
+  // Code to run
+}, [dependencies]); 
 
+    Runs every time the component renders.
+    Runs only on the initial render.
+    Runs when dependencies is updated.
 
+### useref hook
+when we want a reference of something we use this hook.
+The useRef hook is used to persist values without causing re-renders. It can also be used to access DOM elements directly.
+
+const myRef = useRef(initialValue);
+myRef.current holds the value.
+Changing myRef.current does not trigger a re-render.
