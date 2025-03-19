@@ -74,3 +74,8 @@ The useRef hook is used to persist values without causing re-renders. It can als
 const myRef = useRef(initialValue);
 myRef.current holds the value.
 Changing myRef.current does not trigger a re-render.
+
+### useId 
+hook for generating unique id's that can be passed to accessiblity attributes
+const ID = useID()
+
