@@ -100,3 +100,15 @@ const ID = useID()
 - ab jaha bhi outlet denge component change ho jyga par uske liye bhi hame pehle index file me batana hoga kki we are using a layout.
 
 - another useful method is loader passed routers components, which calls api when user simply hovers the link and odnt visit page, we can access loader data using useLoaderData hook.
+
+### Context Api's 
+- It provides a way to create global state that can be accessed by any component without explicitly passing props down the hierarchy.
+- helps in prop drilling (passing props manaually at multiple levels).
+- associated purely to react
+- redux :- library, helps in state management (organised way me data flow krana). We have react-redux and redux-tool-kit (rtk) a more modern and recommended way to use redux with built-in utilities.
+- zustand - another lib for state management.
+- useContext hook is used for the purpose.
+- context 2 part me banta hai 
+- 1> createcontext using "React.createContext()" then return it (it returns us a provider in which we wrap all the components hence, they have access to the all state)
+- 2> create a provider using the element returned by .Provider method and also pass the data in value property of it so that the comps getting wrapped have access to that data.
+- to pass or access data use "useContext" hook, and in app.jsx pass the components to be wrapped.
