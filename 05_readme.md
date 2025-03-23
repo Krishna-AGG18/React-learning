@@ -79,3 +79,24 @@ Changing myRef.current does not trigger a re-render.
 hook for generating unique id's that can be passed to accessiblity attributes
 const ID = useID()
 
+### React Router (crash course) - a 3rd party lib. 
+- npm install react-router-dom
+- with react router dom we get Link, NavLink tags.
+- Link is used in place of <a> tag, coz when we use <a> tag our whole page is refreshed and in react we don't have refresh concept.
+- NavLink gives some additional features like we pass classes in callback function className = {()=> ``} this helps in cases like when u move from home page --> contact page or vice versa the color of link changes on basis of what page are u in so, to identify the page we are at and change color highlights , we need to manipulate classes...
+- In NavLink we have direct access to {isActive} in callback and we can use it to manipulate classes. It allows us to inject variable in className.
+- eg: <NavLink
+         className={({isActive}) =>
+        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange" : "text-gray-700"}`}
+      >
+          Home
+      </NavLink>
+
+- what will happen is it will match from URL is Home is active or not and if active thecoloe or home changesto orange in Navbar.
+- if we want to render our components, we need to create a router using createBrowserRouter method and render it using "RouterProvider" a self closing components accepts the "router" as prop. Directly we cannot use <App />.
+
+- now we want header and footer remains same, and middle components changes for that we create a layout in which we use        <outlet />  and return <> <header /> <footer /> <outlet /> </> and then set it as element in our main object in router.
+
+- ab jaha bhi outlet denge component change ho jyga par uske liye bhi hame pehle index file me batana hoga kki we are using a layout.
+
+- another useful method is loader passed routers components, which calls api when user simply hovers the link and odnt visit page, we can access loader data using useLoaderData hook.
