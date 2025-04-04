@@ -112,3 +112,4 @@ const ID = useID()
 - 1> createcontext using "React.createContext()" then return it (it returns us a provider in which we wrap all the components hence, they have access to the all state)
 - 2> create a provider using the element returned by .Provider method and also pass the data in value property of it so that the comps getting wrapped have access to that data.
 - to pass or access data use "useContext" hook, and in app.jsx pass the components to be wrapped.
+
