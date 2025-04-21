@@ -113,3 +113,6 @@ const ID = useID()
 - 2> create a provider using the element returned by .Provider method and also pass the data in value property of it so that the comps getting wrapped have access to that data.
 - to pass or access data use "useContext" hook, and in app.jsx pass the components to be wrapped.
 
+### REduX tool kit
+---
+state management is the primary usage.
