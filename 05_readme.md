@@ -115,4 +115,8 @@ const ID = useID()
 
 ### REduX tool kit
 ---
-state management is the primary usage.
+abhi tak saara kaam functional component pe basis pr kr rhe the ham.
+kuch kaam classes ke basis par hote ha (depricated now..)
+don't put this on priority , learn these like classes concept and classic redux etc.
+
+Today's redux (Rtk) is eventual upgrade of redux.
