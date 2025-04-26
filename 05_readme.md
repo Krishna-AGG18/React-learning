@@ -119,4 +119,54 @@ abhi tak saara kaam functional component pe basis pr kr rhe the ham.
 kuch kaam classes ke basis par hote ha (depricated now..)
 don't put this on priority , learn these like classes concept and classic redux etc.
 
-Today's redux (Rtk) is eventual upgrade of redux.
+Today's redux (Rtk) is eventual upgrade of classic redux.
+redux is a independent state management library.
+we have react-redux to work with redux.
+
+Flux - architecture for state management and data flow by FaceBook.
+data flow ka kaam context api se bhi ache se nhi hota ha, that's why we use redux, data-flow means consistent access and pushing of data.
+
+REDUX IS A UPGRADE OF FLUX...
+# AGENDA...
+CHANGES SHOULD BE MADE FUNCTIONALLY i.e, through reducers.
+REDUX IS INDEPENDENT LIBRARY NOT PARTICULARLY REACT.
+
+### PROBELM
+react redux : problem is complex set-up, middleware debugs weren't easy.
+react redux toolkit : batteries inlcuded (no need for 1000's setup provides direct flow) ,have more abstraction, easy store making process, built in middleware, manages reducers...
+
+## concept 
+store : single source of truth like a global container for data
+reducers : changes to store are made through reducers, these are objects
+useSelector : usong a value from store
+use Dispatch : to dispatch value in store
+
+### Project for redux
+
+1) using two libraries coz to work with react we need react-redux and for proper set up we need readux-toolkit :
+- npm install @reduxjs/toolkit
+- npm install react-redux
+
+2) create store using "ConfigureStore" in store.js file which has a object as a reducerss
+3) create reducers : diff in toolkit called slicers in a file called "todoSlice"
+                    using the function "createSlice" 
+                    then create a initialstate (array or object)
+                    const initialState = {
+                    todo : [{id: 1,text: "hello world"}]
+                    }
+
+4) create todoSlice or a slice : usinf createSlice , add name and initialstate, reducers (accepts" property : functions reference" in form of object) into that as an object. 
+we get access to state(abhi tak jo bhi data stored ha i.e, prev state of data) and action in reducers.
+
+5) slice is exposed two times first is initial like : export const .... and individual functionality : export const {addTodo,removeTodo} = todoSlice.actions
+
+store should have awareness about the reducers we need to register them , export default todoSlice.reducer and add reducers to the store.
+
+6) create a form to get todos from user and useDispatch hook to add data to our store 
+dispatch uses a reducers to make changes to store
+
+7) use useSelector to get the data to be displayed on screen, it gives access to the state as a callback
+
+8) add to app.jsx components 
+
+9) wrap every thing under Provider
