@@ -3,7 +3,7 @@ import React from 'react'
 function Contact() {
   return (
     <div
-  className="p-4 bg-[url('https://i.pinimg.com/originals/a5/00/ce/a500cea59963d3187152da4b1b5d2981.gif')] h-screen bg-no-repeat bg-cover bg-center flex items-center justify-center"
+  className="p-4 bg-[url('https://i.pinimg.com/originals/bc/8d/02/bc8d026b258afad9a3d4b1b84ed6721f.gif')] h-screen bg-no-repeat bg-cover bg-center flex items-center justify-center"
 >
   <form
     action="https://formsubmit.co/workwithme.karan.ac2759@gmail.com"
