@@ -7,6 +7,7 @@ import Home from './components/Home.jsx';
 import About from './components/About.jsx';
 import Service from './components/Service.jsx';
 import Contact from './components/Contact.jsx'
+import Thank from './components/Thank.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path:"contact",
     element: <Contact />
+  },
+  {
+    path:"thankyou",
+    element: <Thank />
   }
 ]
   }

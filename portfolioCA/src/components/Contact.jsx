@@ -25,7 +25,7 @@ function Contact() {
     <input
       type="hidden"
       name="_next"
-      value="https://yourdomain.com/thank-you"
+      value="https://karanaggarwal.netlify.app/thankyou"
     />
 
     <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-4">
