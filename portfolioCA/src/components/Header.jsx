@@ -15,7 +15,7 @@ function Header() {
                     </div>
                 </div>
                 <div>
-                    <ul className='flex flex-col mt-4 font-bold lg:flex-row lg:space-x-8 lg:mt-0 text-xl'>
+                    <ul className='hidden md:flex flex-col mt-4 font-bold lg:flex-row lg:space-x-8 lg:mt-0 text-xl'>
                         <li>
                             <NavLink
                                 to="/"

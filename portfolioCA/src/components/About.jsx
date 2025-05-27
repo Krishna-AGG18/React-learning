@@ -6,13 +6,13 @@ function About() {
       className="p-4 bg-[url('https://i.pinimg.com/originals/37/2e/38/372e38a7f08f5a0005f5b950a815c791.gif')] h-fit bg-no-repeat bg-cover bg-center text-white px-6 lg:px-12">
       <div className="min-h-svh rounded-[10px] backdrop-blur-[2px]  border-amber-800 text-white py-10 px-5 lg:px10">
         {/* Heading */}
-        <h2 className="text-4xl font-extrabold text-orange-600 mb-6">About Karan Aggarwal</h2>
+        <h2 className="text-4xl font-extrabold text-orange-600 mb-6 text-center">About Karan Aggarwal</h2>
 
         {/* Intro Paragraph */}
         <div className="flex flex-col-reverse lg:flex-row gap-[30%] items-center lg:items-start gap-8">
           {/* Left: Text */}
           <div className="w-full lg:w-1/2">
-            <p className="text-gray-300 leading-relaxed mb-6">
+            <p className="text-gray-300 leading-relaxed mb-6 mt-4 md:mt-0">
               I’m a Chartered Accountant (CA) Finalist with over 6 months of diverse experience.
               I successfully completed a rigorous 3-year articleship at SSR &amp; Co.,
               and have passed the CA Final Group II examination on my first attempt.
