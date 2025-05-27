@@ -39,7 +39,9 @@ after:transition-all after:duration-300 hover:after:w-full"
         <a href="/contact" className="text-orange-500 underline font-bold text-sm sm:text-base">Get in touch →</a>
 
       </div>
-      <div className='text-white'> hello </div>
+      <div className='text-white flex justify-center items-center'>
+        
+      </div>
     </div>
   )
 }
