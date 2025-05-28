@@ -25,7 +25,7 @@ function About() {
           {/* Right: Image */}
           <div className="w-fit flex justify-center lg:justify-end">
             <img
-              src='https://i.pinimg.com/736x/f7/27/14/f72714a4edf7d621e809407b761be3d0.jpg'
+              src='/karan.png'  
               alt="Karan Aggarwal"
               className="object-cover rounded-lg shadow-lg max-h-80 lg:max-h-[200px]"
             />
