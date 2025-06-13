@@ -3,19 +3,22 @@ import { NavLink } from 'react-router-dom';
 function Header() {
     return (
         <>
-            <div className='max-w-full flex justify-around items-center bg-black  text-white'>
-                <div className='max-w-full p-4 flex justify-center items-center'>
+            <div className='max-w-full flex justify-around items-center bg-black max-md:flex-col text-white'>
+                <div className='max-w-full p-4 flex justify-center xs:items-center'>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" height="58px" viewBox="0 -960 960 960" width="58px" fill="#ffffff"><path d="M120-840h330v330H120v-330Zm60 59v188-188Zm330-59h330v330H510v-330Zm83 59v188-188ZM120-450h330v330H120v-330Zm60 81v189-189Zm465-81h60v135h135v60H705v135h-60v-135H510v-60h135v-135Zm-75-330v210h210v-210H570Zm-390 0v210h210v-210H180Zm0 390v210h210v-210H180Z" /></svg>
                     </div>
                     <div>
-                        <h1 className='text-3xl font-extrabold flex justify-center items-center'>
+                        <h1 className='text-[24px] sm:text-3xl font-extrabold flex justify-center items-center'>
                             Karan Aggarwal</h1>
-                        <h2 className='font-bold animate-pulse'>Leave the accounting to me</h2>
+                        <h2 className='font-bold animate-pulse max-xs:text-[12px]'>Leave the accounting to me</h2>
                     </div>
                 </div>
                 <div>
-                    <ul className='hidden md:flex flex-col mt-4 font-bold lg:flex-row lg:space-x-8 lg:mt-0 text-xl'>
+                    {/* <ul className='flex flex-col md:hidden burger'>
+                        <li>Burger</li>
+                    </ul> */}
+                    <ul className='flex mt-4 font-bold lg:space-x-8 lg:mt-0 text-xl max-xs:text-[12px]'>
                         <li>
                             <NavLink
                                 to="/"
