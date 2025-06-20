@@ -6,6 +6,8 @@ function Play() {
     const [dice, setDice] = useState(null);
     const [won, setWon] = useState(null)
     const [showRule, setShowRule] = useState(false);
+    const [lastSelection, setLastSelection] = useState(null); // ← new state
+
 
     const links = [
         "https://i.pinimg.com/736x/be/9c/7f/be9c7f30a5b4070658f62fefe26519c0.jpg",
@@ -28,6 +30,8 @@ function Play() {
         setDice(rolled);
         setLink(links[rolled-1]);
 
+        setLastSelection(selection);
+
         if (rolled === parseInt(selection)) {
             setScore(prev => prev + 4);
             setWon(true);
@@ -35,6 +39,9 @@ function Play() {
             setScore(prev => prev - 1)
             setWon(false);
         }
+
+        setSelection(null); // Clear user selection for next round
+
     };
 
     return (
@@ -104,11 +111,11 @@ function Play() {
                     {dice ? (
                         won ? (
                             <p className="text-green-600 text-wrap text-center">
-                                🎉 You won! The computer also selected <span className="font-bold">{dice}</span>
+                                🎉 You won! The computer also selected <span className="font-bold">{lastSelection}</span>
                             </p>
                         ) : (
                             <p className="text-red-600 text-wrap text-center ">
-                                ❌ You lost this round. Computer selected: <span className="font-bold">{dice}</span>
+                                ❌ You lost this round. Computer selected: <span className="font-bold">{lastSelection}</span>
                             </p>
                         )
                     ) : (
