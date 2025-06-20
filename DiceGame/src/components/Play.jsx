@@ -39,16 +39,16 @@ function Play() {
 
     return (
         <>
-            <div className='p-8 flex w-[100dvw] justify-between '>
+            <div className='p-8 sm:flex w-[100dvw] justify-between max-sm:items-center '>
                 <div className='flex flex-col items-center'>
                     <div className='text-[60px]'>{score}</div>
                     <div className='font-bold'>Total Score</div>
                 </div >
-                <div className='flex flex-col justify-between'>
+                <div className='flex flex-col justify-between max-sm:items-center max-sm:gap-2'>
                     <div>
                         {selection ? <p className='font-bold text-green-500'>You selected : {selection}</p> : <p className='font-bold text-red-600'>You have not selected any number yet...</p>}
                     </div>
-                    <div className='flex gap-[16px]'>
+                    <div className='flex gap-[16px] max-xs:gap-[8px]'>
                         {["1", "2", "3", "4", "5", "6"].map((num) => (
                             <div
                                 key={num}
@@ -103,16 +103,16 @@ function Play() {
                 <div className=" text-center text-lg font-semibold">
                     {dice ? (
                         won ? (
-                            <p className="text-green-600">
+                            <p className="text-green-600 text-wrap text-center">
                                 🎉 You won! The computer also selected <span className="font-bold">{dice}</span>
                             </p>
                         ) : (
-                            <p className="text-red-600">
+                            <p className="text-red-600 text-wrap text-center ">
                                 ❌ You lost this round. Computer selected: <span className="font-bold">{dice}</span>
                             </p>
                         )
                     ) : (
-                        <p className="text-gray-500">Roll the dice to play.</p>
+                        <p className="text-gray-500 text-wrap text-center ">Roll the dice to play.</p>
                     )}
                 </div>
             </div>
