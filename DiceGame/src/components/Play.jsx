@@ -7,6 +7,15 @@ function Play() {
     const [won, setWon] = useState(null)
     const [showRule, setShowRule] = useState(false);
 
+    const links = [
+        "https://i.pinimg.com/736x/be/9c/7f/be9c7f30a5b4070658f62fefe26519c0.jpg",
+        "https://i.pinimg.com/736x/d2/63/9c/d2639c3588b17ccc47ecd421330bea33.jpg",
+        "https://i.pinimg.com/736x/db/c6/86/dbc686d23e2e9ccbaccd87ba307700d9.jpg",
+        "https://i.pinimg.com/736x/87/fc/dd/87fcddae07b1ee254f0061a4a9d31892.jpg",
+        "https://i.pinimg.com/736x/3e/c5/c6/3ec5c6a646873e29670f1f433d4a99bf.jpg",
+        "https://i.pinimg.com/736x/2b/2c/5c/2b2c5cd1cb2b6b9c8ab00988e1ecdb62.jpg"
+    ]
+    const [link, setLink] = useState(links[5])
     const rollDice = () => {
         if (!selection) {
             alert("You have not selected any number, you can't roll the dice...");
@@ -17,6 +26,7 @@ function Play() {
         console.log("Dice Rolled:", rolled);
 
         setDice(rolled);
+        setLink(links[rolled-1]);
 
         if (rolled === parseInt(selection)) {
             setScore(prev => prev + 4);
@@ -56,7 +66,14 @@ function Play() {
                 </div>
             </div>
             <div className='flex flex-col items-center gap-[25px]'>
-                <div></div>
+                <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[150px] md:h-[150px]">
+                    <img
+                        src={link}
+                        alt="Dice"
+                        className="w-full h-full object-contain"
+                    />
+                </div>
+
                 <div className="flex flex-col items-center gap-4 mt-6">
                     <button className="cursor-pointer px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md transition duration-200" onClick={rollDice}>
                         🎲 Click to roll the dice
@@ -75,10 +92,10 @@ function Play() {
                         {/* Content shown only if someVariable is truthy */}
                         <p className='font-semibold'>How to play the game</p>
                         <div>
-                        <p>1: Select any number</p>
-                        <p>2: Click on roll the dice button</p>
-                        <p>3: You get 4 points, if number selected by you and system comes out to be same</p>
-                        <p>4: And 1 point is deducted, if the selection doesn't match</p>
+                            <p>1: Select any number</p>
+                            <p>2: Click on roll the dice button</p>
+                            <p>3: You get 4 points, if number selected by you and system comes out to be same</p>
+                            <p>4: And 1 point is deducted, if the selection doesn't match</p>
                         </div>
                     </div>
                 ) : null}
