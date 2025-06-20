@@ -111,11 +111,11 @@ function Play() {
                     {dice ? (
                         won ? (
                             <p className="text-green-600 text-wrap text-center">
-                                🎉 You won! The computer also selected <span className="font-bold">{lastSelection}</span>
+                                🎉 You won! The computer also selected <span className="font-bold">{dice}</span>
                             </p>
                         ) : (
                             <p className="text-red-600 text-wrap text-center ">
-                                ❌ You lost this round. Computer selected: <span className="font-bold">{lastSelection}</span>
+                                ❌ You lost this round. Computer selected: <span className="font-bold">{dice}</span>
                             </p>
                         )
                     ) : (
