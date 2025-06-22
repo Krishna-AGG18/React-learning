@@ -10,10 +10,10 @@ for each type of create project like from vite, create react app etc. storage pr
 
 Usually .env file is loaded once for a project or refreshes when changes are made to it or something is added, and each time we need to restart our project.
 
-# for "create react app" :
+ # for "create react app" :
  vars name should start with "REACT_APP_", ACCESSED using "process.env.REACT_APP_<name of the var>.
 
-# for vite : 
+ # for vite : 
 To prevent accidentally leaking env variables to the client, only variables prefixed with VITE_ are exposed to your Vite-processed code. e.g. for the following env variables:
 VITE_SOME_KEY=123
 DB_PASSWORD=foobar
@@ -25,3 +25,14 @@ console.log(import.meta.env.DB_PASSWORD) // undefined
 for production grade apps and to avoid error create a folder "conf" in src and a conf.js file in it, in that file 
 create a object which stores all the id, key's as an object and then export them.
 
+### What i learned from video - 3 : Build authentication service with appwrite...
+Appwrite gives multiple services and sometime there arises a problem of "Vendor LockIn" (if there is a need to move our authentication out of appwrite still our App works continously) hence a "Services" comes in play (nothing but a class that exports method and do some work)
+
+# Authentication :
+Email and password login is the most commonly used authentication method. Appwrite Authentication promotes a safer internet by providing secure APIs and promoting better password choices to end users. Appwrite supports added security features like blocking personal info in passwords, password dictionary, and password history to help users choose good passwords.
+
+You can use the Appwrite Client SDKs to create an account using email and password.
+
+full source : "https://appwrite.io/docs/products/auth/email-password"
+
+Creating a folder named "appwrite" 
