@@ -36,3 +36,15 @@ You can use the Appwrite Client SDKs to create an account using email and passwo
 full source : "https://appwrite.io/docs/products/auth/email-password"
 
 Creating a folder named "appwrite" 
+In that folder create a "auth.js" file (dont directly use the template provided in doc as it is because then we need to expose it at the time of registration also , since we need a quality code ue the method followed in code of it)
+---- in depth reason on authentication.md file...
+
+### Writing database /collection - video 4 
+created a file "config.js" to create / delete/update, getOne, getall posts and also learned to code for querying the db on appwrite following it's documentation.
+You're applying the Service Layer Pattern:
+
+All backend logic stays here
+
+UI components only call service methods, not Appwrite directly
+
+This makes code easier to test, maintain, and debug
