@@ -48,3 +48,43 @@ All backend logic stays here
 UI components only call service methods, not Appwrite directly
 
 This makes code easier to test, maintain, and debug
+
+# Configure redux for project
+Sure! Here's your dictated setup, neatly organized into bullet points for easy storage and quick reference:
+
+---
+
+### 🧭 Redux Toolkit Setup Steps (React + Vite)
+
+* ✅ Create a folder named `store` inside the `src` directory.
+
+* 📄 Inside `store`, create a file named `store.js`.
+
+* 🛠️ In `store.js`:
+
+  * Import `configureStore` from `@reduxjs/toolkit`.
+  * Create a store using `configureStore()`.
+  * Provide the reducer(s) inside the store configuration.
+  * Export the store as the default export.
+
+* 📁 Create a service (feature) file where you will define a slice — this is your Redux "module".
+
+* 🧩 Import `createSlice` from `@reduxjs/toolkit`.
+
+* 🧱 Use `createSlice()` to define:
+
+  * A **name** for the slice.
+  * An **initial state**.
+  * A set of **reducers** — these are functions that functionally change the state.
+
+    * Reducers receive `state` and `action`, and return the updated state.
+    * They describe how the state changes in response to actions.
+
+* 📤 Export:
+
+  * The **actions** generated from the slice (`slice.actions`).
+  * The **reducer** (`slice.reducer`) as the default export from the file.
+
+---
+
+Would you like this as a downloadable `.txt` file too?
