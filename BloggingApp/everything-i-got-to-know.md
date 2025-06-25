@@ -85,6 +85,14 @@ Sure! Here's your dictated setup, neatly organized into bullet points for easy s
   * The **actions** generated from the slice (`slice.actions`).
   * The **reducer** (`slice.reducer`) as the default export from the file.
 
----
+Also done some conditional rendering part for checking if user is in login or logout state.
+Created components folder and 2 more sub folder in it , set up some code in app.jsx...
 
-Would you like this as a downloadable `.txt` file too?
+# Production grade react components...
+Suppose of a login form.
+There are two ways to work with it either on submit send the details stored in states directly to a function Or
+a component based approach where input field is a seperate component .... --> will be using this approach in this phase..
+
+got to know many things and two things are :
+1) useNavigate : same as <Link> to redirect on click
+2) forwardref : useful jaha same input field is being reused for name, pass, email  and we need state's ref at the form then we use this hook...
