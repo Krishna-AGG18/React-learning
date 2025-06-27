@@ -177,13 +177,9 @@ You are **sending a reference (ref)** to a box (component), but you want it to t
 # How to use react hook form in porduction ...
 select me generally options are provided in array form..
 
-got to know the use of react hok form at 18:53 
+got to know the use of react hook form at 18:53 
 
 ### what i understand in authlayout.jsx file : 
-Sure! Let me explain the **use** of the `Protected` component you wrote, in **simple words**.
-
----
-
 ### 🛡️ What is the `Protected` component for?
 
 It is used to **protect certain pages or routes** in your app so that:
@@ -229,16 +225,44 @@ This means:
 * Keeps your app **secure and clean** for users.
 
 ---
-
-### 📌 Summary
-
-| Purpose                     | Behavior                                                                |
-| --------------------------- | ----------------------------------------------------------------------- |
-| Protect routes              | Only allow access if user has correct login status                      |
-| Redirect unauthorized users | Takes user to login or home depending on the condition                  |
-| Loader                      | Shows "Loading..." while checking login status                          |
-| Auth toggle                 | `authentication=true` = must be logged in, `false` = must be logged out |
-
----
-
 Let me know if you want to also protect `Admin` pages or create different layouts for logged in/out users — I can help you extend this!
+
+
+# Adding form and slug values
+here we did the job for RTE (real time editor)... easy in our case due to the use of timymce.
+
+Rte is a seperate component, either wrap it in the forwardref then use it or use react-hook-form technique. we will pe testing our second method
+
+we will also see about slug, tracking a form and designing slug on basis of input value
+
+new things : Controller , Editor
+
+### Rte.jsx Understandings : 
+<Controller
+  name={name || "content"}
+  control={control}
+  render={({ field: { onChange } }) => (
+    <Editor
+      ...
+      onEditorChange={onChange} // <-- connects Editor to React Hook Form
+    />
+  )}
+/>
+💡 What's Controller doing?
+It connects your custom Editor (TinyMCE in this case) to React Hook Form.
+
+React Hook Form can’t directly track TinyMCE, so Controller helps.
+
+💡 What's onEditorChange={onChange} doing?
+When you type in the editor, it triggers onEditorChange.
+
+That calls onChange, which tells React Hook Form,
+👉 “Hey! My value changed!”
+
+So React Hook Form now knows:
+
+The latest value of the editor
+
+When it changes
+
+It can validate or submit the value
