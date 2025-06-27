@@ -12,18 +12,18 @@ function Login() {
     const { register, handleSubmit } = useForm()
     const [error, setError] = useState(null)
 
-    const login = async (data) => {
+    const login = async(data) => {
         setError(null)
         try {
             const session = await authService.login(data)
             if (session) {
                 const userData = await authService.getCurrentUser()
-                if (userData) dispatch(authLogin(userData))
+                if(userData) dispatch(authLogin(userData))
                 navigate("/")
             }
         } catch (error) {
-            setError(error)
-        }
+  setError(error?.message || "Something went wrong");
+}
     }
     return (
         <div

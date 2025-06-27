@@ -11,14 +11,13 @@ export default function Protected({children, authenication = true}) {
     useEffect(() => {
         if(authenication && authStatus !== authenication){
             navigate("/login")
-        }else if(!authenication && authStatus !== authenication)
-            navigate("/")
+        }else if(!authenication && authStatus !== authenication){
+          navigate("/")
+        }
         setLoader(false)
     }, [authStatus, navigate, authenication])
 
   return (
-    loader ? <h1>Loading...</h1> : {children}
+    loader ? <h1>Loading...</h1> : <>{children} </>
   )
 }
-
- AuthLayout

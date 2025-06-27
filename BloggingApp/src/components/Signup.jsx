@@ -10,7 +10,7 @@ function Signup() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [error, setError] = useState("")
-    const [register, handleSubmit] = useForm()
+    const {register, handleSubmit} = useForm()
 
     const signup = async(data) => {
         setError("")
@@ -44,7 +44,7 @@ function Signup() {
                         Sign In
                     </Link>
                 </p>
-                {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+                {error && <p className="text-red-600 mt-8 text-center">{String(error)}</p>}
 
                 <form onSubmit={handleSubmit(signup)}>
                     <div className='space-y-5'>

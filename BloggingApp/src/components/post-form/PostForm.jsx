@@ -1,41 +1,48 @@
-import React, {useCallback, useEffect} from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import {Button, Input, Select, RTE} from '../index'
+import { Button, Input, Select, RTE } from '../index'
 import service from "../../appwrite/config"
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 
-function PostForm({post}) {
-    const {control, handleSubmit, watch, setValue, getValues} = useForm({
-        defaultValues: {
-            title: post?.title || '',
-            slug: post?.slug || '',
-            content: post?.content || '',
-            status: post?.status || 'active',
-        }
-    })
+function PostForm({ post }) {
+    const { control, handleSubmit, watch, setValue, register, reset, getValues } = useForm()
+
 
     const navigate = useNavigate()
     const userData = useSelector(state => state.auth.userData)
-    
-    const submit = async (data) => {
-        if(post){
-            const file = data.image[0] ? service.uploadFile(data.image[0]) : null
 
-            if(file) {
+    useEffect(() => {
+        if (post) {
+            reset({
+                title: post.title || '',
+                slug: post.slug || '',
+                content: post.content || '',
+                status: post.status || 'active',
+            })
+        }
+    }, [post, reset])
+
+    const submit = async(data) => {
+
+        if (post) {
+            const file = data.image[0] ? await service.uploadFile(data.image[0]) : null
+
+            if (file) {
                 service.deleteFile(post.featuredImage)
             }
 
             const dbPost = await service.updatePost(post.$id, {
-                ...data, featuredImage: file ? file.$id : undefined})
+                ...data, featuredImage: file ? file.$id : undefined
+            })
 
-            if(dbPost){
+            if (dbPost) {
                 navigate(`/post/${dbPost.$id}`)
             }
         } else {
             const file = await service.uploadFile(data.image[0])
-            if(file) {
+            if (file) {
                 const fileId = file.$id
                 data.featuredImage = fileId
                 const dbPost = await service.createPost({
@@ -43,34 +50,38 @@ function PostForm({post}) {
                     userId: userData.$id
                 })
 
-                if(dbPost) navigate(`/post/${dbPost.$id}`)
+                if (dbPost) navigate(`/post/${dbPost.$id}`)
             }
-        } 
-    } 
+        }
+    }
 
     const slugTransform = useCallback((value) => {
-        if(value && typeof value === 'string')
-            return value.trim()
-                        .toLowerCase()
-                        .replace(/^[a-zA-Z\d]+/g, '-')
-        
-        return ''
-    },[])
+        if (value && typeof value === 'string') {
+            return value
+                .trim()
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')   // replace non-alphanumeric with hyphen
+                .replace(/^-+|-+$/g, '');      // remove starting or ending hyphens
+        }
 
-    useEffect(() =>{
-        const subscription = watch((value, {name}) => {
-            if(name == 'title'){
-                setValue('slug', slugTransform(value.title, {shouldValidate : true}))
+        return '';
+    }, []);
+
+
+    useEffect(() => {
+        const subscription = watch((value, { name }) => {
+            if (name === 'title') {
+                setValue("slug", slugTransform(value.title), { shouldValidate: true });
             }
 
         })
         return () => {
             subscription.unsubscribe()
         }
-    },[watch, slugTransform, setValue])
+    }, [watch, slugTransform, setValue])
 
     return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+        <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
             <div className="w-2/3 px-2">
                 <Input
                     label="Title :"
@@ -87,7 +98,7 @@ function PostForm({post}) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                <RTE label="Content :" name="content" control={control}  />
             </div>
             <div className="w-1/3 px-2">
                 <Input
@@ -100,7 +111,7 @@ function PostForm({post}) {
                 {post && (
                     <div className="w-full mb-4">
                         <img
-                            src={appwriteService.getFilePreview(post.featuredImage)}
+                            src={service.getFilePreview(post.featuredImage)}
                             alt={post.title}
                             className="rounded-lg"
                         />
@@ -117,7 +128,7 @@ function PostForm({post}) {
                 </Button>
             </div>
         </form>
-  )
+    )
 }
 
 export default PostForm
