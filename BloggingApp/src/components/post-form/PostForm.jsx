@@ -1,84 +1,78 @@
-import React, { useCallback, useEffect } from 'react'
-import { useForm } from 'react-hook-form'
-import { Button, Input, Select, RTE } from '../index'
-import service from "../../appwrite/config"
-import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import React, { useCallback } from "react";
+import { useForm } from "react-hook-form";
+import { Button, Input, RTE, Select } from "..";
+import service from "../../appwrite/config";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
+export default function PostForm({ post }) {
+    const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
+        defaultValues: {
+            title: post?.title || "",
+            slug: post?.$id || "",
+            content: post?.content || "",
+            status: post?.status || "active",
+        },
+    });
 
-function PostForm({ post }) {
-    const { control, handleSubmit, watch, setValue, register, reset, getValues } = useForm()
-
-
-    const navigate = useNavigate()
-    const userData = useSelector(state => state.auth.userData)
-
-    useEffect(() => {
-        if (post) {
-            reset({
-                title: post.title || '',
-                slug: post.slug || '',
-                content: post.content || '',
-                status: post.status || 'active',
-            })
-        }
-    }, [post, reset])
+    const navigate = useNavigate();
+    const userData = useSelector((state) => state.auth.userData);
+    // console.log("Creating post with userId:", userData); // ✅ Check it's defined
 
     const submit = async(data) => {
-
+        console.log(data);
+        
         if (post) {
-            const file = data.image[0] ? await service.uploadFile(data.image[0]) : null
+            const file = data.image[0] ? await service.uploadFile(data.image[0]) : null;
 
             if (file) {
-                service.deleteFile(post.featuredImage)
+                service.deleteFile(post.featuredImage);
             }
 
             const dbPost = await service.updatePost(post.$id, {
-                ...data, featuredImage: file ? file.$id : undefined
-            })
+                ...data,
+                featuredImage: file ? file.$id : undefined,
+            });
 
             if (dbPost) {
-                navigate(`/post/${dbPost.$id}`)
+                navigate(`/post/${dbPost.$id}`);
             }
         } else {
-            const file = await service.uploadFile(data.image[0])
+            const file = await service.uploadFile(data.image[0]);
+            // console.log(userData);
+                
             if (file) {
-                const fileId = file.$id
-                data.featuredImage = fileId
-                const dbPost = await service.createPost({
-                    ...data,
-                    userId: userData.$id
-                })
+                const fileId = file.$id;
+                data.featuredImage = fileId;
+                const dbPost = await service.createPost({ ...data, userId:userData.userData.$id });
 
-                if (dbPost) navigate(`/post/${dbPost.$id}`)
+                if (dbPost) {
+                    navigate(`/post/${dbPost.$id}`);
+                }
             }
         }
-    }
+    };
 
     const slugTransform = useCallback((value) => {
-        if (value && typeof value === 'string') {
+        if (value && typeof value === "string")
             return value
                 .trim()
                 .toLowerCase()
-                .replace(/[^a-z0-9]+/g, '-')   // replace non-alphanumeric with hyphen
-                .replace(/^-+|-+$/g, '');      // remove starting or ending hyphens
-        }
+                .replace(/[^a-zA-Z\d\s]+/g, "-")
+                .replace(/\s/g, "-");
 
-        return '';
+        return "";
     }, []);
 
-
-    useEffect(() => {
+    React.useEffect(() => {
         const subscription = watch((value, { name }) => {
-            if (name === 'title') {
+            if (name === "title") {
                 setValue("slug", slugTransform(value.title), { shouldValidate: true });
             }
+        });
 
-        })
-        return () => {
-            subscription.unsubscribe()
-        }
-    }, [watch, slugTransform, setValue])
+        return () => subscription.unsubscribe();
+    }, [watch, slugTransform, setValue]);
 
     return (
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
@@ -98,7 +92,7 @@ function PostForm({ post }) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-                <RTE label="Content :" name="content" control={control}  />
+                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
             <div className="w-1/3 px-2">
                 <Input
@@ -128,7 +122,5 @@ function PostForm({ post }) {
                 </Button>
             </div>
         </form>
-    )
+    );
 }
-
-export default PostForm

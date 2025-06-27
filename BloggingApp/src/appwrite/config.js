@@ -5,7 +5,7 @@ import { Client, Account, ID, Databases, Storage, Query } from "appwrite";
 export class Service {
     client = new Client();
     databases;
-    buket;
+    bucket;
 
      constructor(){
         this.client
@@ -16,6 +16,8 @@ export class Service {
      }
 
      async createPost({title, slug, content, featuredImage, status, userId}){
+        // console.log(userId);
+        
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId, conf.appwriteCollectionId, slug,{
@@ -113,8 +115,8 @@ export class Service {
         }
      }
 
-     getFilePreview(fileId){
-        return this.bucket.getFilePreview(conf.appwriteBucketId,fileId)
+     getFileView(fileId){
+        return this.bucket.getFileView(conf.appwriteBucketId,fileId)
      }
 }
 

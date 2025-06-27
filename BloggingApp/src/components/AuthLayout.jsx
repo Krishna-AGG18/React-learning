@@ -9,6 +9,8 @@ export default function Protected({children, authenication = true}) {
     const authStatus = useSelector(state => state.auth.status)
 
     useEffect(() => {
+      // console.log(authStatus);
+      
         if(authenication && authStatus !== authenication){
             navigate("/login")
         }else if(!authenication && authStatus !== authenication){
