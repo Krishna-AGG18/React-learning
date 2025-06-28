@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Logo, Logoutbtn} from '../index'
+import { Container, Logo, Logoutbtn } from '../index'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -13,50 +13,53 @@ function Header() {
       name: 'Home',
       slug: "/",
       active: true
-    }, 
+    },
     {
       name: "Login",
       slug: "/login",
       active: !authStatus,
-  },
-  {
+    },
+    {
       name: "Signup",
       slug: "/signup",
       active: !authStatus,
-  },
-  {
+    },
+    {
       name: "All Posts",
       slug: "/all-posts",
       active: authStatus,
-  },
-  {
+    },
+    {
       name: "Add Post",
       slug: "/add-post",
       active: authStatus,
-  },
+    },
   ]
 
   return (
-    <header className='py-3 shadow bg-gray-500'>
+    <header className='py-3 shadow bg-black text-contrastColor'>
       <Container>
-        <nav className='flex'>
-          <div className='mr-4'>
+        <nav className='flex max-xs:text-[14px] max-xsm:text-[11px] justify-between max-xs:justify-center max-xs:items-center'>
+          <div className='mr-4 flex justify-center items-center'>
             <Link to='/'>
               <Logo width='70px' />
             </Link>
           </div>
 
-          <ul className='flex ml-auto '>
+          <ul className='flex'>
             {
-              navItems.map((item) => 
+              navItems.map((item) =>
                 item.active ? (
-                  <li key={item.name}> {/* key sirf usi element ke liye hoti ha jo repeating hota ha uska parent ho ya na ho does not matter... */}
-                    <button 
-                     className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+                  <li key={item.name}>
+                    <button
+                      className='inline-bock px-6 py-2 duration-200 hover:bg-white/10 hover:backdrop-blur-md hover:shadow-md hover:font-semibold cursor-pointer rounded-lg'
                       onClick={() => navigate(item.slug)}
-                    >{item.name}</button>
+                    >
+                      {item.name}
+                    </button>
                   </li>
-                ): null
+
+                ) : null
               )
             }
             {
