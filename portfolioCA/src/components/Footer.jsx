@@ -5,13 +5,13 @@ function Footer() {
     <div className='bg-black p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-white'>
       <div className='flex flex-col justify-center'>
         <p className="text-xs text-gray-400 mt-2 text-center md:text-left">
-          Karan Aggarwal
+          CA Karan Aggarwal
         </p>
         <p className="text-xs text-gray-400 mt-2 max-md:text-center">
           Business Accounting Associate | Simplifying your finances.
         </p>
         <p className="text-xs text-gray-400 mt-2 max-md:text-center">
-          🔗LinkedIn : <a href="https://www.linkedin.com/in/karan2759" className='text-orange-500 hover:text-orange-600' target='_blank' rel="noopener noreferrer">Karan Aggarwal</a>
+          🔗LinkedIn : <a href="https://www.linkedin.com/in/karan2759" className='text-orange-500 hover:text-orange-600' target='_blank' rel="noopener noreferrer">CA Karan Aggarwal</a>
         </p>
       </div>
       <div className='flex flex-col justify-center'>

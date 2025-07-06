@@ -37,7 +37,7 @@ function Header() {
   ]
 
   return (
-    <header className='py-3 shadow bg-black text-contrastColor'>
+    <header className='py-3 bg-black text-contrastColor shadow-[0_4px_12px_rgba(255,255,255,0.6)] z-10'>
       <Container>
         <nav className='flex max-xs:text-[14px] max-xsm:text-[11px] justify-between max-xs:justify-center max-xs:items-center'>
           <div className='mr-4 flex justify-center items-center'>

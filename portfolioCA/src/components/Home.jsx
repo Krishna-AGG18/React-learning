@@ -24,7 +24,7 @@ function Home() {
           <p className="relative inline-block w-fit text-3xl sm:text-4xl md:text-5xl font-bold cursor-pointer my-3 
                       pb-2 after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:h-[3px] after:w-0 after:bg-orange-700 after:transition-all after:duration-300 hover:after:w-full"
           >
-            Karan Aggarwal
+            CA Karan Aggarwal
           </p>
 
           <div>

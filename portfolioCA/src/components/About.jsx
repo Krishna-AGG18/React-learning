@@ -13,7 +13,7 @@ function About() {
           {/* Left: Text */}
           <div className="w-full lg:w-1/2">
             <p className="text-gray-300 leading-relaxed mb-6 mt-4 md:mt-0">
-              I’m a Chartered Accountant (CA) Finalist with over 6 months of diverse experience.
+              I’m a Chartered Accountant (CA) with over 6 months of diverse experience.
               I successfully completed a rigorous 3-year articleship at SSR &amp; Co.,
               and have passed the CA Final Group II examination on my first attempt.
               I specialize in accounting, auditing, and taxation—simplifying complex regulations
